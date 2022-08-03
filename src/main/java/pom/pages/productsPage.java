@@ -1,5 +1,5 @@
 package pom.pages;
-
+import java.util.Arrays;
 import com.microsoft.playwright.*;
 
 public class productsPage {
@@ -19,13 +19,15 @@ public class productsPage {
         this.productPrice = page.locator(".inventory_item_price").first();
     }
 
-    public void saveProductInfo(int files, int numberOfItems){
-        String [][] productsInfo = new String [files][numberOfItems];
-        for (int i=0; i<files; i++){
-            productsInfo[i][numberOfItems] = productName.textContent();
-            productsInfo[i][numberOfItems+1] = productDescription.textContent();
-            productsInfo[i][numberOfItems+2] = productPrice.textContent();
+    public String[][] saveProductInfo(int numberOfItems, int dataStored){
+        String [][] productsInfo = new String[numberOfItems][dataStored];
+        for (int i=0; i<numberOfItems; i++) {
+            productsInfo[i][0] = productName.textContent();
+            productsInfo[i][1] = productDescription.textContent();
+            productsInfo[i][2] = productPrice.textContent();
         }
+        System.out.println(Arrays.deepToString(productsInfo));
+        return productsInfo;
     }
 
 }
