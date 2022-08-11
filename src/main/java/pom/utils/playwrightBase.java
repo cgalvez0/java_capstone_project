@@ -6,7 +6,7 @@ public class playwrightBase {
     BrowserType browserType;
     Browser browser;
     BrowserContext context;
-    protected Page page;
+    public Page page;
 
     public void launchPlaywright(String browserName, String headless) {
         playwright = Playwright.create();

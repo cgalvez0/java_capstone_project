@@ -4,10 +4,10 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
 public class loginPage {
-    private final Page page;
-    private final Locator usernameInput;
-    private final Locator passwordInput;
-    private final Locator loginButton;
+    public final Page page;
+    public final Locator usernameInput;
+    public final Locator passwordInput;
+    public final Locator loginButton;
     public final Locator errorMessage;
     public loginPage(Page page){
         this.page = page;
