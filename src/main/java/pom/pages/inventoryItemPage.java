@@ -19,10 +19,11 @@ public class inventoryItemPage {
     public boolean checkProductInfo(String[][] productsInfo){
         productsPage productsPage = new productsPage(page);
         productsPage.productImage.click();
-//        for (int i=0; i<productsInfo.length; i++){
-            if (productsInfo[0][0].equals(productName.textContent()) && productsInfo[0][1].equals(productDescription.textContent()) && productsInfo[0][2].equals(productPrice.textContent())) {
+        for (int i=0; i<productsInfo.length; i++) {
+            if (productsInfo[i][0].equals(productName.textContent()) && productsInfo[i][1].equals(productDescription.textContent()) && productsInfo[i][2].equals(productPrice.textContent())) {
                 return true;
             }
-            return false;
+        }
+        return false;
     }
 }

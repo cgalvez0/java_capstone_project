@@ -17,10 +17,6 @@ public class loginPage {
         this.errorMessage = page.locator("[data-test='error']");
     }
 
-//    public void navigate(){
-//        page.navigate("https://www.saucedemo.com/");
-//    }
-
     public void submitLoginForm(String username, String password){
         if (username != null){
             usernameInput.fill(username);

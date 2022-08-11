@@ -3,11 +3,11 @@ import org.testng.annotations.*;
 
 import pom.pages.loginPage;
 import pom.pages.productsPage;
-import pom.pages.inventoryItemPage;
+import pom.pages.cartPage;
 import pom.utils.playwrightBase;
 import static pom.data.constants.*;
-public class inventoryItemTest extends playwrightBase{
 
+public class cartTest extends playwrightBase{
     @BeforeMethod
     @Parameters({ "url", "browserName" , "headless"})
     public void browserStart(@Optional("https://www.saucedemo.com/") String url,
@@ -18,11 +18,11 @@ public class inventoryItemTest extends playwrightBase{
         loginPage.submitLoginForm(validUsername, validPassword);
     }
 
-    @Test(testName = "As a standard user, I should be able to click on a product's image and validate the product name, description and price on the inventory item details.", priority = 1)
-    public void testInventoryItem() {
+    @Test(testName = "As a standard user, I should be able to add a product in my cart and validate if the product information is correct.", priority = 1)
+    public void testValidateProductInfoOnCart() {
         productsPage productsPage = new productsPage(page);
-        inventoryItemPage inventoryDetailPage = new inventoryItemPage(page);
-        Assert.assertEquals(inventoryDetailPage.checkProductInfo(productsPage.saveProductInfo(minimumItem)),true);
+        cartPage cartPage = new cartPage(page);
+        Assert.assertEquals(cartPage.checkProductsOnCartInfo(productsPage.saveProductInfo(minimumItem)),true);
     }
 
     @AfterMethod

@@ -4,6 +4,7 @@ import org.testng.annotations.*;
 import pom.pages.loginPage;
 import pom.pages.productsPage;
 import pom.utils.playwrightBase;
+import static pom.data.constants.*;
 
 public class loginTest extends playwrightBase{
 
@@ -19,30 +20,30 @@ public class loginTest extends playwrightBase{
     public void testLoginWithValidCredentials() {
         loginPage loginPage = new loginPage(page);
         productsPage productsPage = new productsPage(page);
-        loginPage.submitLoginForm("standard_user", "secret_sauce");
-        assertThat(productsPage.pageTitle).hasText("Products");
+        loginPage.submitLoginForm(validUsername, validPassword);
+        assertThat(productsPage.pageTitle).hasText(productPageTitle);
     }
 
     @Test(testName = "As a standard user, I should not be able to log in when I don't provide an username.", priority = 2)
     public void testLoginWithoutUsername() {
         loginPage loginPage = new loginPage(page);
-        loginPage.submitLoginForm(null, "secret_sauce");
+        loginPage.submitLoginForm(null, validPassword);
         //System.out.println(System.getProperty("user.username"));
-        assertThat(loginPage.errorMessage).containsText("Epic sadface: Username is required");
+        assertThat(loginPage.errorMessage).containsText(usernameIsRequiredMessage);
     }
 
     @Test(testName = "As a standard user, I should not be able to log in when I don't provide a password.", priority = 3)
     public void testLoginWithoutPassword() {
         loginPage loginPage = new loginPage(page);
-        loginPage.submitLoginForm("standard_user", null);
-        assertThat(loginPage.errorMessage).containsText("Epic sadface: Password is required");
+        loginPage.submitLoginForm(validUsername, null);
+        assertThat(loginPage.errorMessage).containsText(passwordIsRequiredMessage);
     }
 
     @Test(testName = "As a standard user, I should not be able to log in when I don't provide a valid username.", priority = 4)
     public void testLoginWithAnInvalidUsername() {
         loginPage loginPage = new loginPage(page);
-        loginPage.submitLoginForm("standard_us", "secret_sauce");
-        assertThat(loginPage.errorMessage).containsText("Epic sadface: Username and password do not match any user in this service");
+        loginPage.submitLoginForm(invalidUsername, validPassword);
+        assertThat(loginPage.errorMessage).containsText(invalidCredentialMessage);
     }
 
     @AfterMethod
