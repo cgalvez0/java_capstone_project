@@ -1,9 +1,10 @@
 package pom.data;
+import com.harium.dotenv.Env;
 
 public final class constants {
 
-    public static final String validUsername = "standard_user";
-    public static final String validPassword = "secret_sauce";
+    public static final String validUsername = Env.get("VALID_USERNAME");
+    public static final String validPassword = Env.get("VALID_PASSWORD");
     public static final String invalidUsername = "standard_us";
 
     public static final String productPageTitle = "Products";

@@ -8,7 +8,7 @@ import static pom.data.constants.*;
 
 public class loginTest extends playwrightBase{
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun=true)
     @Parameters({ "url", "browserName" , "headless"})
     public void browserStart(@Optional("https://www.saucedemo.com/") String url,
                              @Optional("chrome") String browserName, @Optional("false") String headless) {
@@ -46,7 +46,7 @@ public class loginTest extends playwrightBase{
         assertThat(loginPage.errorMessage).containsText(invalidCredentialMessage);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun=true)
     public void browserClose() {
         closePlaywright();
     }
