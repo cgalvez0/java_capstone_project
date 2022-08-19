@@ -16,7 +16,7 @@ public class loginTest extends playwrightBase{
         launchApplication(url);
     }
 
-    @Test(testName = "As a standard user, I should be able to log in when I provide valid credentials.", priority = 1, groups = "smoke")
+    @Test(testName = "As a standard user, I should be able to log in when I provide valid credentials.", priority = 1, groups = "smoke", description = "As a standard user, I should be able to log in when I provide valid credentials.")
     public void testLoginWithValidCredentials() {
         loginPage loginPage = new loginPage(page);
         productsPage productsPage = new productsPage(page);
@@ -24,7 +24,7 @@ public class loginTest extends playwrightBase{
         assertThat(productsPage.pageTitle).hasText(productPageTitle);
     }
 
-    @Test(testName = "As a standard user, I should not be able to log in when I don't provide an username.", priority = 2)
+    @Test(testName = "As a standard user, I should not be able to log in when I don't provide an username.", priority = 2, description = "As a standard user, I should not be able to log in when I don't provide an username.")
     public void testLoginWithoutUsername() {
         loginPage loginPage = new loginPage(page);
         loginPage.submitLoginForm(null, validPassword);
@@ -32,14 +32,14 @@ public class loginTest extends playwrightBase{
         assertThat(loginPage.errorMessage).containsText(usernameIsRequiredMessage);
     }
 
-    @Test(testName = "As a standard user, I should not be able to log in when I don't provide a password.", priority = 3)
+    @Test(testName = "As a standard user, I should not be able to log in when I don't provide a password.", priority = 3, description = "As a standard user, I should not be able to log in when I don't provide a password.")
     public void testLoginWithoutPassword() {
         loginPage loginPage = new loginPage(page);
         loginPage.submitLoginForm(validUsername, null);
         assertThat(loginPage.errorMessage).containsText(passwordIsRequiredMessage);
     }
 
-    @Test(testName = "As a standard user, I should not be able to log in when I don't provide a valid username.", priority = 4, groups = "smoke")
+    @Test(testName = "As a standard user, I should not be able to log in when I don't provide a valid username.", priority = 4, groups = "smoke", description = "As a standard user, I should not be able to log in when I don't provide a valid username.")
     public void testLoginWithAnInvalidUsername() {
         loginPage loginPage = new loginPage(page);
         loginPage.submitLoginForm(invalidUsername, validPassword);

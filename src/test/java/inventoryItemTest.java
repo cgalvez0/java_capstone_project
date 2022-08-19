@@ -18,7 +18,7 @@ public class inventoryItemTest extends playwrightBase{
         loginPage.submitLoginForm(validUsername, validPassword);
     }
 
-    @Test(testName = "As a standard user, I should be able to click on a product's image and validate the product name, description and price on the inventory item details.", priority = 1, groups = "smoke")
+    @Test(testName = "As a standard user, I should be able to click on a product's image and validate the product name, description and price on the inventory item details.", priority = 1, groups = "smoke", description = "As a standard user, I should be able to click on a product's image and validate the product name, description and price on the inventory item details.")
     public void testInventoryItem() {
         productsPage productsPage = new productsPage(page);
         inventoryItemPage inventoryDetailPage = new inventoryItemPage(page);
