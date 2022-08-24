@@ -22,13 +22,13 @@ jobs:
         with:
             java-version: '17'
             distribution: 'adopt'
-      - name: Build project and run smoke tests with Maven
+      - name: Run smoke test with Maven
         run: |
           mvn test -Dgroups=smoke
       - name: Download report
         uses: actions/upload-artifact@v3
         with:
-          name: FE-report.zip
+          name: FE-report
           path: target/surefire-reports
 
   slack-notifications:
