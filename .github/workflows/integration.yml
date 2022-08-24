@@ -24,29 +24,11 @@ jobs:
             distribution: 'adopt'
       - name: Run tests with Maven
         run: mvn test -Dgroups=smoke
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
+      - name: Send Results and Generate Allure Report
+        uses: Xotabu4/send-to-allure-server-action@1
+        if: ${{ always() }}
         with:
-          ref: gh-pages
-          path: gh-pages
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
-        with:
-          allure_results: target/allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+          allure-server-url: 'http://my-allure-server.com:5001/'
 
   slack-notifications:
     needs: run-tests
