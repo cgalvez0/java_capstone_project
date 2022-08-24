@@ -58,7 +58,7 @@ The purpose of this challenge is aimed to make the mentee to experiment a role p
 
 Clone this repository.
 ```
-git clone https://github.com/wizeline/java-capstone-project
+git clone https://github.com/cgalvez0/java_capstone_project.git
 ```
 Open the folder on the IntelliJIDEA and run the following
 ```
@@ -90,7 +90,7 @@ In order to see the report, after run each test, don't forget to run in the term
 ```
 allure serve allure-results
 ```
-Apart from Allure reporter, surefire report is also running, in order to see the report, just go to the following path: target/surefire-reports/index.html and drag and drop the index.html file on a Chrome browser. On the github actions, this report is the one that is downloaded and zipped. Just open the FE-report folder and find this file, drag and drop it on a Chrome browser.
+Apart from the Allure reporter, surefire report is also running, in order to see the report, just go to the following path: target/surefire-reports/index.html and drag and drop the index.html file on a Chrome browser. On the github actions, this report is the one that is downloaded and zipped. Just open the FE-report folder and find this file, drag and drop it on a Chrome browser.
 
 
 ** This project was developed on MacOS Monterrey 12.5.1
