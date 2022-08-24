@@ -30,8 +30,6 @@ public class productsPage {
             productsInfo[i][1] = productDescription.textContent();
             productsInfo[i][2] = productPrice.textContent();
         }
-        //System.out.println(productsInfo[0][0]);
-        //System.out.println(Arrays.deepToString(productsInfo));
         return productsInfo;
     }
 
