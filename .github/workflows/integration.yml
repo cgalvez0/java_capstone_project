@@ -22,11 +22,11 @@ jobs:
         with:
             java-version: '17'
             distribution: 'adopt'
-      - name: Download report
-        uses: actions/upload-artifact@v2
+      - name: Set up JDK 17
+        uses: vimtor/action-zip@v1
         with:
-          name: allure-results.zip
-          path: allure-results
+          files: allure-results/*
+          dest: result.zip
 
   slack-notifications:
     needs: run-tests
