@@ -8,7 +8,7 @@ import pom.utils.playwrightBase;
 import static pom.data.constants.*;
 
 public class navigationTest extends playwrightBase{
-    @BeforeMethod
+    @BeforeMethod(alwaysRun=true)
     @Parameters({ "url", "browserName" , "headless"})
     public void browserStart(@Optional("https://www.saucedemo.com/") String url,
                              @Optional("chrome") String browserName, @Optional("true") String headless) {
@@ -41,7 +41,7 @@ public class navigationTest extends playwrightBase{
         assertThat(cartPage.pageTitle).hasText(CART_PAGE_TITLE.getConstant());
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun=true)
     public void browserClose() {
         closePlaywright();
     }
