@@ -22,10 +22,10 @@ jobs:
         with:
             java-version: '17'
             distribution: 'adopt'
-      - name: Create allure results folder
+      - name: Build project and run smoke tests with Maven
         run: |
-          sudo apt-get update 
-          sudo apt-get -y install allure
+          mvn package
+          mvn test -Dgroups=smoke
           allure generate allure-results --clean -o allure-results
       - name: Download report
         uses: actions/upload-artifact@v3
