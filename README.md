@@ -26,7 +26,7 @@ The purpose of this challenge is aimed to make the mentee to experiment a role p
 │    │   ├── main
 │    │   │   └── java
 │    │   │        └── pom     # Main Page Object Model folder.
-│    │   │             ├── data		# Data providers, Roles.
+│    │   │             ├── data		# Data providers.
 │    │   │             │    └── constants.java
 │    │   │             ├── pages		# All the pages.
 │    │   │             │    ├── cartPage.java
@@ -60,7 +60,7 @@ Clone this repository.
 ```
 git clone https://github.com/cgalvez0/java_capstone_project.git
 ```
-Open the folder on the IntelliJIDEA and run the following
+Open the folder on the IntelliJIDEA, open a terminal and run the following
 ```
 mvn build
 ```
