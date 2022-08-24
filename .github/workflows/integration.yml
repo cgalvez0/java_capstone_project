@@ -47,3 +47,16 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
+  slack-notifications:
+    needs: run-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: testing
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: Build status
+          SLACK_MESSAGE: ':white_check_mark: FrontEnd build status: Success'
