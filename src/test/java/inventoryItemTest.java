@@ -15,14 +15,14 @@ public class inventoryItemTest extends playwrightBase{
         launchPlaywright(browserName, headless);
         launchApplication(url);
         loginPage loginPage = new loginPage(page);
-        loginPage.submitLoginForm(validUsername, validPassword);
+        loginPage.submitLoginForm(VALID_USERNAME.getConstant(), VALID_PASSWORD.getConstant());
     }
 
     @Test(testName = "As a standard user, I should be able to click on a product's image and validate the product name, description and price on the inventory item details.", priority = 1, groups = "smoke", description = "As a standard user, I should be able to click on a product's image and validate the product name, description and price on the inventory item details.")
     public void testInventoryItem() {
         productsPage productsPage = new productsPage(page);
         inventoryItemPage inventoryDetailPage = new inventoryItemPage(page);
-        Assert.assertEquals(inventoryDetailPage.checkProductInfo(productsPage.saveProductInfo(minimumItem)),true);
+        Assert.assertEquals(inventoryDetailPage.checkProductInfo(productsPage.saveProductInfo(Integer.parseInt(MINIMUM_ITEM.getConstant()))),true);
     }
 
     @AfterMethod(alwaysRun=true)

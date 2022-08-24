@@ -1,21 +1,30 @@
 package pom.data;
 import com.harium.dotenv.Env;
+public enum constants {
+    VALID_USERNAME(Env.get("VALID_USERNAME")),
+    VALID_PASSWORD(Env.get("VALID_PASSWORD")),
+    INVALID_USERNAME("standard_us"),
 
-public final class constants {
+    PRODUCT_PAGE_TITLE("Products"),
+    CART_PAGE_TITLE("Your Cart"),
 
-    public static final String validUsername = Env.get("VALID_USERNAME");
-    public static final String validPassword = Env.get("VALID_PASSWORD");
-    public static final String invalidUsername = "standard_us";
+    USERNAME_IS_REQUIRED_MESSAGE("Epic sadface: Username is required"),
+    PASSWORD_IS_REQUIRED_MESSAGE("Epic sadface: Password is required"),
+    INVALID_CREDENTIAL_MESSAGE("Epic sadface: Username and password do not match any user in this service"),
 
-    public static final String productPageTitle = "Products";
+    MINIMUM_ITEM("1"),
 
-    public static final String usernameIsRequiredMessage = "Epic sadface: Username is required";
-    public static final String passwordIsRequiredMessage = "Epic sadface: Password is required";
-    public static final String invalidCredentialMessage = "Epic sadface: Username and password do not match any user in this service";
+    LOGIN_URL("https://www.saucedemo.com/"),
+    PRODUCT_URL("https://www.saucedemo.com/inventory.html"),
+    CART_URL("https://www.saucedemo.com/cart.html");
 
-    public static final int minimumItem = 1;
-    public static final String cartPageTitle = "Your Cart";
-    public static final String loginURL = "https://www.saucedemo.com/";
-    public static final String productsURL = "https://www.saucedemo.com/inventory.html";
-    public static final String cartURL = "https://www.saucedemo.com/cart.html";
+    public final String label;
+
+    constants (String label){
+        this.label = label;
+    }
+
+    public String getConstant(){
+        return label;
+    }
 }

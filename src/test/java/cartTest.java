@@ -15,14 +15,14 @@ public class cartTest extends playwrightBase{
         launchPlaywright(browserName, headless);
         launchApplication(url);
         loginPage loginPage = new loginPage(page);
-        loginPage.submitLoginForm(validUsername, validPassword);
+        loginPage.submitLoginForm(VALID_USERNAME.getConstant(), VALID_PASSWORD.getConstant());
     }
 
     @Test(testName = "As a standard user, I should be able to add a product in my cart and validate if the product information is correct.", priority = 1, groups = "smoke" , description = "As a standard user, I should be able to add a product in my cart and validate if the product information is correct.")
     public void testValidateProductInfoOnCart() {
         productsPage productsPage = new productsPage(page);
         cartPage cartPage = new cartPage(page);
-        Assert.assertEquals(cartPage.checkProductsOnCartInfo(productsPage.saveProductInfo(minimumItem)),true);
+        Assert.assertEquals(cartPage.checkProductsOnCartInfo(productsPage.saveProductInfo(Integer.parseInt(MINIMUM_ITEM.getConstant()))),true);
     }
 
     @AfterMethod(alwaysRun=true)
