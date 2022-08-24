@@ -13,13 +13,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Create and set properties file
-        env:
-          VALID_USERNAME: ${{ secrets.VALID_USERNAME }}
-          VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
         run: | 
           touch .env
-          echo 'VALID_USERNAME=$VALID_USERNAME' >> .env
-          echo 'VALID_PASSWORD=$VALID_PASSWORD' >> .env
+          echo VALID_USERNAME=${{ secrets.VALID_USERNAME }} >> .env
+          echo VALID_PASSWORD=${{ secrets.VALID_PASSWORD }} >> .env
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
