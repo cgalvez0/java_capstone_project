@@ -24,14 +24,12 @@ jobs:
             distribution: 'adopt'
       - name: Build project and run smoke tests with Maven
         run: |
-          mvn package
           mvn test -Dgroups=smoke
-          allure generate allure-results --clean -o allure-results
       - name: Download report
         uses: actions/upload-artifact@v3
         with:
-          name: allure-results.zip
-          path: allure-results/*
+          name: FE-report.zip
+          path: target/surefire-reports
 
   slack-notifications:
     needs: run-tests
