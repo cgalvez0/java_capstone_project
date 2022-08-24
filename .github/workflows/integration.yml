@@ -24,9 +24,8 @@ jobs:
             distribution: 'adopt'
       - name: Create allure results folder
         run: |
-          sudo apt-add-repository ppa:qameta/allure
           sudo apt-get update 
-          sudo apt-get install allure
+          sudo apt-get -y install allure
           allure generate allure-results --clean -o allure-results
       - name: Download report
         uses: actions/upload-artifact@v3
