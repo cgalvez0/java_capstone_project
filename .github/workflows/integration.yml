@@ -27,8 +27,6 @@ jobs:
       - name: Send Results and Generate Allure Report
         uses: Xotabu4/send-to-allure-server-action@1
         if: ${{ always() }}
-        with:
-          allure-server-url: 'http://my-allure-server.com:5001/'
 
   slack-notifications:
     needs: run-tests
