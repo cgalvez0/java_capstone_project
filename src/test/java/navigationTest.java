@@ -11,7 +11,7 @@ public class navigationTest extends playwrightBase{
     @BeforeMethod
     @Parameters({ "url", "browserName" , "headless"})
     public void browserStart(@Optional("https://www.saucedemo.com/") String url,
-                             @Optional("chrome") String browserName, @Optional("false") String headless) {
+                             @Optional("chrome") String browserName, @Optional("true") String headless) {
         launchPlaywright(browserName, headless);
         launchApplication(url);
     }
